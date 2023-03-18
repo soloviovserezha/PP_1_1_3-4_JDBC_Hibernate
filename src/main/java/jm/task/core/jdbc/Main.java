@@ -18,5 +18,12 @@ public class Main {
         userService.getAllUsers();
         userService.cleanUsersTable();
         userService.getAllUsers();
+
+//        userService.getAllUsers();
+//        userService.removeUserById(2);
+//        userService.saveUser("User2", "2", (byte) 20);
+//        userService.getAllUsers();
+//        userService.cleanUsersTable();
+//        userService.getAllUsers();
     }
 }
