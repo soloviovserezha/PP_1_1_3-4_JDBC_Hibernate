@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         UserServiceImpl userService = new UserServiceImpl();
 
+        userService.dropUsersTable();
         userService.createUsersTable();
         userService.saveUser("User1", "1", (byte) 10);
         userService.saveUser("User2", "2", (byte) 20);
@@ -14,16 +15,6 @@ public class Main {
 
         userService.getAllUsers();
         userService.removeUserById(2);
-        userService.saveUser("User2", "2", (byte) 20);
         userService.getAllUsers();
-        userService.cleanUsersTable();
-        userService.getAllUsers();
-
-//        userService.getAllUsers();
-//        userService.removeUserById(2);
-//        userService.saveUser("User2", "2", (byte) 20);
-//        userService.getAllUsers();
-//        userService.cleanUsersTable();
-//        userService.getAllUsers();
     }
 }
