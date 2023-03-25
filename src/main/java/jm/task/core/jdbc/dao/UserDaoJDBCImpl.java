@@ -24,7 +24,6 @@ public class UserDaoJDBCImpl implements UserDao {
                 "PRIMARY KEY(id))";
         try (Connection connection = Util.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(createUsersTable)) {
             preparedStatement.execute();
-            System.out.println("create table " + preparedStatement.execute());
         } catch (SQLException e) {
             logger.log(Level.INFO, "failed, table wasn't created", e);
         }
