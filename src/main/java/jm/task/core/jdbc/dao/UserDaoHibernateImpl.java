@@ -20,8 +20,8 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void createUsersTable() {
         Transaction transaction;
-        final String createUsersTable = "create table if not exists Users(" +
-                "id BIGINT not null AUTO_INCREMENT, " +
+        final String createUsersTable = "CREATE TABLE IF NOT EXISTS Users(" +
+                "id BIGINT NOT NULL AUTO_INCREMENT, " +
                 "name TINYTEXT NOT NULL, " +
                 "last_name TINYTEXT NOT NULL, " +
                 "age TINYINT NOT NULL, " +
@@ -39,7 +39,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void dropUsersTable() {
         Transaction transaction;
-        final String dropUsersTable = "drop table if exists Users";
+        final String dropUsersTable = "DROP TABLE IF EXISTS Users";
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.createSQLQuery(dropUsersTable).executeUpdate();
@@ -80,7 +80,7 @@ public class UserDaoHibernateImpl implements UserDao {
     public List<User> getAllUsers() {
         List<User> userList = null;
         Transaction transaction;
-        final String getAllUsers = "from " + User.class.getSimpleName();
+        final String getAllUsers = "FROM " + User.class.getSimpleName();
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery(getAllUsers);
@@ -95,7 +95,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void cleanUsersTable() {
         Transaction transaction;
-        final String cleanUsersTable = "truncate Users";
+        final String cleanUsersTable = "TRUNCATE Users";
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createSQLQuery(cleanUsersTable);
